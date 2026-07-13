@@ -20,30 +20,7 @@
     const OVERRIDE_URL = 'https://cdn.jsdelivr.net/gh/ianian-cy/My-Mac-Temporarymonkey-Script@main/StyleSheet/Dev-Override.css';
 
     const sitecssmap = {
-        // ==================== Google
         'gemini.google.com': 'Gemini.css',
-        'aistudio.google.com': 'Aistudio-Google.css',
-        'colab.research.google.com': 'Google-Colab.css',
-        'youtube.com': 'Youtube.css',
-        'google.com': 'Google-Search.css',        // 已修正原本嘅 'google,com' 逗號 typo
-        // ====================
-        'claude.ai': 'Claude.css',
-        'platform.claude.com': 'platform.claude.css',
-        // ====================
-        'theguardian.com': 'The-Guardian.css',
-        'theage.com.au': 'The-Age.css',
-        'grok.com': 'Grok.css',
-        'blog.csdn.net': 'blog_csdn.css',
-        'perplexity.ai': 'perplexity.css',        // 已刪 'www.perplexity.ai/search/'(hostname 永遠唔會含 path)
-        '881903.com': '881903.css',
-        'ieltsonlinetests.com': 'ieltsonlinetests.css',
-        'missav.ai': 'MissAI.css',
-        'thesaurus.com': 'thesaurus.css',
-        'web.telegram.org': 'Telegram.css',
-        'learn.adelaide.edu.au': 'Learn-Adelaide.css',
-        'hk01.com': 'hk01.css',
-        'wordlayouts.com': 'hk01.css',            // ⚠️ 照你原本咁指住 hk01.css,如果係手民之誤請自行改
-        'terraink.app': 'terraink.css'
     };
 
     const currenthost = window.location.hostname.replace(/^www\./, '');
