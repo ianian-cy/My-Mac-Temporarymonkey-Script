@@ -280,7 +280,7 @@
 		--font-claude-response: ThePeakFontPlus;
 	}
 	.font-claude-response-body {
-		font-family: serif !important;
+		font-family: --font-claude-response, serif !important;
 	}
 	strong {
 		/*font-weight: unset !important;*/
