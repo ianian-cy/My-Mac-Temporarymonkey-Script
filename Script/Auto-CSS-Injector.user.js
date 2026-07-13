@@ -7,6 +7,7 @@
 // @match        *://*/*
 // @grant        GM_xmlhttpRequest
 // @grant        GM.xmlHttpRequest
+// @grant        GM_addStyle
 // @run-at       document-start
 // @connect      raw.githubusercontent.com
 // @updateURL    https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Auto-CSS-Injector.user.js
