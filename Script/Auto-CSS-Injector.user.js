@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto CSS Injector
 // @namespace    http://tampermonkey.net/
-// @version      0.6
+// @version      0.7
 // @description  直接修改 CSS
 // @author       ianian.__.cy
 // @match        *://*/*
@@ -36,6 +36,8 @@
     }
 
     const BASE = 'https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/StyleSheet/';
+    const OVERRIDE_URL = 'https://cdn.jsdelivr.net/gh/ianian-cy/My-Mac-Temporarymonkey-Script@main/StyleSheet/Dev-Override.css';
+
     const sitecssmap = {
         'gemini.google.com': 'Gemini.css',
     };
@@ -58,4 +60,15 @@
             break;
         }
     }
+    gmFetch(OVERRIDE_URL)
+        .then(csstext => {
+            if (!csstext.replace(/\/\*[\s\S]*?\*\//g, '').trim()) return;   // 空檔案就唔注入
+            const style = document.createElement('style');
+            style.setAttribute('data-injected-by', 'auto-css-dev-override');
+            style.textContent = csstext + '\n\n/*# sourceURL=Dev-Override.css */';
+            (document.head || document.documentElement).appendChild(style);
+            console.log('🔧 Dev-Override injected');
+        })
+        .catch(() => {});   // Dev-Override 攞唔到就靜靜雞跳過
+
 })();
