@@ -1,0 +1,288 @@
+@layer Font {
+	/* 	@layer Main-Font { */
+	/* 		!* 英文字母 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Main-Font-English"; */
+	/* 			!*src           : local("Segoe UI"), local("Arial");*! */
+	/* 			src           : local("LiSong Pro"), local("Arial"); */
+	/* 			unicode-range : U+0041-005A, U+0061-007A; !* A-Z, a-z *! */
+	/* 			} */
+	/* 		!* 數字 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Main-Font-Number"; */
+	/* 			src           : local("SF Pro Display"), local("Roboto"); */
+	/* 			unicode-range : U+0030-0039; !* 0-9 *! */
+	/* 			} */
+	/* 		!* 基本符號和標點 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Main-Font-Symbol"; */
+	/* 			src           : local("SF Symbols"), local("Arial Unicode MS"); */
+	/* 			unicode-range : U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007F; */
+	/* 			!* 空格到/, :到@, [到`, {到DEL *! */
+	/* 			} */
+	/* 		!* 繁體中文 (使用 lang 屬性區分，Unicode 範圍相同) *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Main-Font-Traditional"; */
+	/* 			src           : local("LiSong Pro"), local("Songti TC"), local("PingFang TC"); */
+	/* 			unicode-range : U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF; */
+	/* 			!* CJK 統一漢字, CJK 擴展A, CJK 兼容漢字 *! */
+	/* 			} */
+	/* 		!* 簡體中文 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Main-Font-Simplified"; */
+	/* 			src           : local("PingFang SC"), local("Songti SC"), local("SimSun"); */
+	/* 			unicode-range : U+4E00-9FFF, U+3400-4DBF; */
+	/* 			!* 主要 CJK 漢字範圍 *! */
+	/* 			} */
+	/* 		!* 日文假名 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Main-Font-Japanese"; */
+	/* 			src           : local("Hiragino Sans"), local("Yu Gothic"); */
+	/* 			unicode-range : U+3040-309F, U+30A0-30FF, U+31F0-31FF; */
+	/* 			!* 平假名, 片假名, 片假名語音擴展 *! */
+	/* 			} */
+	/* 		!* 韓文 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Main-Font-Korean"; */
+	/* 			src           : local("Apple SD Gothic Neo"), local("Malgun Gothic"); */
+	/* 			unicode-range : U+AC00-D7AF, U+1100-11FF, U+3130-318F; */
+	/* 			!* 韓文音節, 韓文字母, 韓文兼容字母 *! */
+	/* 			} */
+	/* 		!* 其他常用符號 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Main-Font-Symbols-Extended"; */
+	/* 			src           : local("Apple Color Emoji"), local("Segoe UI Emoji"); */
+	/* 			unicode-range : U+2000-206F, U+2070-209F, U+20A0-20CF, U+2100-214F, U+2190-21FF, U+2200-22FF, U+2300-23FF, U+2600-26FF, U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF; */
+	/* 			!* 標點符號, 上下標, 貨幣符號, 字母符號, 箭頭, 數學符號, 其他符號, 表情符號等 *! */
+	/* 			} */
+	/* 		} */
+	/* 	@layer Markdown-H1-Title { */
+	/* 		!* 英文字母 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Markdown-H1-Title-English"; */
+	/* 			src           : local("Bakpia Sabang"); */
+	/* 			unicode-range : U+0041-005A, U+0061-007A; !* A-Z, a-z *! */
+	/* 			} */
+	/* 		!* 數字 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Markdown-H1-Title-Number"; */
+	/* 			src           : local('STFangsong'), local("SF Pro Display"), local("Roboto"); */
+	/* 			unicode-range : U+0030-0039; !* 0-9 *! */
+	/* 			} */
+	/* 		!* 基本符號和標點 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Markdown-H1-Title-Symbol"; */
+	/* 			src           : local('ThePeakFontPlus'), local("SF Symbols"), local("Arial Unicode MS"); */
+	/* 			unicode-range : U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007F; */
+	/* 			!* 空格到/, :到@, [到`, {到DEL *! */
+	/* 			} */
+	/* 		!* 中文 (使用 lang 屬性區分，Unicode 範圍相同) *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Markdown-H1-Title-Chinese"; */
+	/* 			src           : local('ThePeakFontPlus'), local("LiSong Pro"), local("Songti TC"), local("PingFang TC"); */
+	/* 			unicode-range : U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+4E00-9FFF, U+3400-4DBF; */
+	/* 			} */
+	/* 		!* 其他常用符號 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Markdown-H1-Title-Symbols-Extended"; */
+	/* 			src           : local("Apple Color Emoji"), local("Segoe UI Emoji"); */
+	/* 			unicode-range : U+2000-206F, U+2070-209F, U+20A0-20CF, U+2100-214F, U+2190-21FF, U+2200-22FF, U+2300-23FF, U+2600-26FF, U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF; */
+	/* 			!* 標點符號, 上下標, 貨幣符號, 字母符號, 箭頭, 數學符號, 其他符號, 表情符號等 *! */
+	/* 			} */
+	/* 		} */
+	/* 	@layer Markdown-H2-Title { */
+	/* 		!* 英文字母 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Markdown-H2-Title-English"; */
+	/* 			!* src           : local("Bakpia Sabang"); *! */
+	/* 			!* src           : local('SignPainter-HouseScript'); *! */
+	/* 			src           : local("SignPainter-HouseScriptSemibold"); */
+	/* 			unicode-range : U+0041-005A, U+0061-007A; !* A-Z, a-z *! */
+	/* 			} */
+	/* 		!* 數字 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Markdown-H2-Title-Number"; */
+	/* 			src           : local('BMYEONSUNG-OTF'), local("SF Pro Display"), local("Roboto"); */
+	/* 			unicode-range : U+0030-0039; !* 0-9 *! */
+	/* 			} */
+	/* 		!* 基本符號和標點 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Markdown-H2-Title-Symbol"; */
+	/* 			src           : local("White-Colors"), local("SF Symbols"); */
+	/* 			unicode-range : U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007F; */
+	/* 			!* 空格到/, :到@, [到`, {到DEL *! */
+	/* 			} */
+	/* 		!* 中文 (使用 lang 屬性區分，Unicode 範圍相同) *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Markdown-H2-Title-Chinese"; */
+	/* 			src           : local('ThePeakFontPlus'), local('jf-liao-Proportional-Regular'), local("LiSong Pro"), local("Songti TC"), local("PingFang TC"); */
+	/* 			unicode-range : U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+4E00-9FFF, U+3400-4DBF; */
+	/* 			} */
+	/* 		!* 其他常用符號 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Markdown-H2-Title-Symbols-Extended"; */
+	/* 			src           : local("Apple Color Emoji"), local("Segoe UI Emoji"); */
+	/* 			unicode-range : U+2000-206F, U+2070-209F, U+20A0-20CF, U+2100-214F, U+2190-21FF, U+2200-22FF, U+2300-23FF, U+2600-26FF, U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF; */
+	/* 			!* 標點符號, 上下標, 貨幣符號, 字母符號, 箭頭, 數學符號, 其他符號, 表情符號等 *! */
+	/* 			} */
+	/* 		} */
+	/* 	@layer Latex-Main { */
+	/* 		!* 英文字母 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Latex-Main-English"; */
+	/* 			!* src           : local("Bakpia Sabang"); *! */
+	/* 			!* src           : local('SignPainter-HouseScript'); *! */
+	/* 			!* src           : local("SignPainter-HouseScriptSemibold"); *! */
+	/* 			src: local('Baskerville'); */
+	/* 			unicode-range : U+0041-005A, U+0061-007A; !* A-Z, a-z *! */
+	/* 			} */
+	/* 		!* 數字 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Latex-Main-Number"; */
+	/* 			src           : local('BMYEONSUNG-OTF'), local("SF Pro Display"), local("Roboto"); */
+	/* 			unicode-range : U+0030-0039; !* 0-9 *! */
+	/* 			} */
+	/* 		!* 基本符號和標點 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Latex-Main-Symbol"; */
+	/* 			src           : local("White-Colors"), local("SF Symbols"); */
+	/* 			unicode-range : U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007F; */
+	/* 			!* 空格到/, :到@, [到`, {到DEL *! */
+	/* 			} */
+	/* 		!* 中文 (使用 lang 屬性區分，Unicode 範圍相同) *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Latex-Main-Chinese"; */
+	/* 			src           : local('ThePeakFontPlus'), local('jf-liao-Proportional-Regular'), local("LiSong Pro"), local("Songti TC"), local("PingFang TC"); */
+	/* 			unicode-range : U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+4E00-9FFF, U+3400-4DBF; */
+	/* 			} */
+	/* 		!* 其他常用符號 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "Latex-Main-Extended"; */
+	/* 			src           : local("Apple Color Emoji"), local("Segoe UI Emoji"); */
+	/* 			unicode-range : U+2000-206F, U+2070-209F, U+20A0-20CF, U+2100-214F, U+2190-21FF, U+2200-22FF, U+2300-23FF, U+2600-26FF, U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF; */
+	/* 			!* 標點符號, 上下標, 貨幣符號, 字母符號, 箭頭, 數學符號, 其他符號, 表情符號等 *! */
+	/* 			} */
+	/* 		} */
+	/* 	@layer GoodNotes-Main { */
+	/* 		!* 英文字母 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "GoodNotes-Main-English"; */
+	/* 			!* src: local('Allura-Regular'); *! */
+	/* 			!* src: local('NothingYouCouldDo'); *! */
+	/* 			!* src: local('SignPainter-HouseScriptSemibold'); *! */
+	/* 			!* src: local('DancingScript-Bold'); *! */
+	/* 			src: local('MarckScript-Regular'); */
+	/* 			unicode-range : U+0041-005A, U+0061-007A; !* A-Z, a-z *! */
+	/* 			} */
+	/* 		!* 數字 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "GoodNotes-Main-Number"; */
+	/* 			src           : local('BMYEONSUNG-OTF'), local("SF Pro Display"), local("Roboto"); */
+	/* 			unicode-range : U+0030-0039; !* 0-9 *! */
+	/* 			} */
+	/* 		!* 基本符號和標點 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "GoodNotes-Main-Symbol"; */
+	/* 			src           : local('SnellRoundhand-Bold'), local('MarckScript-Regular'), local("White-Colors"), local("SF Symbols"); */
+	/* 			unicode-range : U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007F; */
+	/* 			!* 空格到/, :到@, [到`, {到DEL *! */
+	/* 			} */
+	/* 		!* 中文 (使用 lang 屬性區分，Unicode 範圍相同) *! */
+	/* 		@font-face { */
+	/* 			font-family   : "GoodNotes-Main-Chinese"; */
+	/* 			src           : local('ThePeakFontPlus'), local('jf-liao-Proportional-Regular'), local("LiSong Pro"), local("Songti TC"), local("PingFang TC"); */
+	/* 			unicode-range : U+4E00-9FFF, U+3400-4DBF, U+F900-FAFF, U+4E00-9FFF, U+3400-4DBF; */
+	/* 			} */
+	/* 		!* 其他常用符號 *! */
+	/* 		@font-face { */
+	/* 			font-family   : "GoodNotes-Main-Extended"; */
+	/* 			src           : local("Apple Color Emoji"), local("Segoe UI Emoji"); */
+	/* 			unicode-range : U+2000-206F, U+2070-209F, U+20A0-20CF, U+2100-214F, U+2190-21FF, U+2200-22FF, U+2300-23FF, U+2600-26FF, U+1F300-1F5FF, U+1F600-1F64F, U+1F680-1F6FF; */
+	/* 			!* 標點符號, 上下標, 貨幣符號, 字母符號, 箭頭, 數學符號, 其他符號, 表情符號等 *! */
+	/* 			} */
+	/* 		} */
+}
+@layer Dark-Mode {
+	#Preset_Variable, [data-mode='dark'] *{
+		--Background-color-000 : 52 72% 92%;
+		--Background-color-100 : 52 72% 92%;
+		--Background-color-200 : 50 79% 89%;
+		--Background-color-300 : 45 52% 81%;
+		--Background-color-400 : 45 52% 81%;
+		/* ---------------------------------------- */
+		--accent-brand         : 15 63.1% 59.6%;
+		--accent-main-000      : 15 54.2% 51.2%;
+		--accent-main-100      : 15 54.2% 51.2%;
+		--accent-main-200      : 15 63.1% 59.6%;
+		--accent-main-900      : 0 0% 0%;
+		--accent-pro-000       : 251 34.2% 33.3%;
+		--accent-pro-100       : 251 40% 45.1%;
+		--accent-pro-200       : 251 61% 72.2%;
+		--accent-pro-900       : 253 33.3% 91.8%;
+		--accent-secondary-000 : 210 73.7% 40.2%;
+		--accent-secondary-100 : 210 70.9% 51.6%;
+		--accent-secondary-200 : 210 70.9% 51.6%;
+		--accent-secondary-900 : 211 72% 90%;
+		/*--bg-000               : var(--Background-color-000);*/
+		--bg-100               : var(--Background-color-100);
+		--bg-200               : var(--Background-color-200);
+		--bg-300               : var(--Background-color-300);
+		--bg-400               : var(--Background-color-400);
+		/*--bg-500               : var(--Background-color-500);*/
+		--bg-000               : 0 0% 100%;
+		/*--bg-100               : 48 33.3% 97.1%;*/
+		/*--bg-200               : 53 28.6% 94.5%;*/
+		/*--bg-300               : 48 25% 92.2%;*/
+		/*--bg-400               : 50 20.7% 88.6%;*/
+		--bg-500               : 50 20.7% 88.6%;
+		--border-100           : 30 3.3% 11.8%;
+		--border-200           : 30 3.3% 11.8%;
+		--border-300           : 30 3.3% 11.8%;
+		--border-400           : 30 3.3% 11.8%;
+		--danger-000           : 0 58.6% 34.1%;
+		--danger-100           : 0 56.2% 45.4%;
+		--danger-200           : 0 56.2% 45.4%;
+		--danger-900           : 0 50% 95%;
+		--oncolor-100          : 0 0% 100%;
+		--oncolor-200          : 60 6.7% 97.1%;
+		--oncolor-300          : 60 6.7% 97.1%;
+		--pictogram-100        : 50 20.7% 88.6%;
+		--pictogram-200        : 51 16.5% 84.5%;
+		--pictogram-300        : 0 0% 100%;
+		--pictogram-400        : 48 33.3% 97.1%;
+		--success-000          : 125 100% 18%;
+		--success-100          : 103 72.3% 26.9%;
+		--success-200          : 103 72.3% 26.9%;
+		--success-900          : 86 45.1% 90%;
+		--text-000             : 60 2.6% 7.6%;
+		--text-100             : 60 2.6% 7.6%;
+		--text-200             : 60 2.5% 23.3%;
+		--text-300             : 60 2.5% 23.3%;
+		--text-400             : 51 3.1% 43.7%;
+		--text-500             : 51 3.1% 43.7%;
+		--warning-000          : 45 91.8% 19%;
+		--warning-100          : 39 88.8% 28%;
+		--warning-200          : 39 88.8% 28%;
+		--warning-900          : 38 65.9% 92%
+	}
+	[data-mode='dark'] p.font-claude-response-body:not(:has(strong)) {
+		font-family : 'Main-Font-English', 'Main-Font-Number',
+		'Main-Font-Symbol', 'Main-Font-Traditional', 'Main-Font-Simplified',
+		'Main-Font-Japanese', 'Main-Font-Korean', 'Main-Font-Symbols-Extended',
+		system-ui, sans-serif !important;
+		font-size: x-large !important;
+		font-weight: normal !important;
+
+	}
+}
+@layer Light-Mode {
+	* {
+		--font-claude-response: ThePeakFontPlus;
+	}
+	.font-claude-response-body {
+		font-family: serif !important;
+	}
+	strong {
+		/*font-weight: unset !important;*/
+	}
+}
