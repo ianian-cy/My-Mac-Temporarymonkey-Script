@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto CSS Injector
 // @namespace    http://tampermonkey.net/
-// @version      0.5
+// @version      0.5.1
 // @description  直接修改 CSS
 // @author       ianian.__.cy
 // @match        *://*/*
@@ -38,7 +38,6 @@
     const BASE = 'https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/StyleSheet/';
     const sitecssmap = {
         'gemini.google.com': 'Gemini.css',
-        'github.com': 'Gemini.css',
     };
 
     const currenthost = window.location.hostname.replace(/^www\./, '');
