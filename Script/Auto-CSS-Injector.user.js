@@ -38,6 +38,7 @@
     const BASE = 'https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/StyleSheet/';
     const sitecssmap = {
         'gemini.google.com': 'Gemini.css',
+        'github.com': 'Gemini.css',
     };
 
     const currenthost = window.location.hostname.replace(/^www\./, '');
