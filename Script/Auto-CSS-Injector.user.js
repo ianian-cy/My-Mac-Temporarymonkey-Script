@@ -9,7 +9,6 @@
 // @grant        GM.xmlHttpRequest
 // @run-at       document-start
 // @connect      raw.githubusercontent.com
-// @connect      cdn.jsdelivr.net
 // @updateURL    https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Auto-CSS-Injector.user.js
 // @downloadURL  https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Auto-CSS-Injector.user.js
 // ==/UserScript==
@@ -36,8 +35,6 @@
     }
 
     const BASE = 'https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/StyleSheet/';
-    const OVERRIDE_URL = 'https://cdn.jsdelivr.net/gh/ianian-cy/My-Mac-Temporarymonkey-Script@main/StyleSheet/Dev-Override.css';
-
     const sitecssmap = {
         'gemini.google.com': 'Gemini.css',
     };
@@ -47,8 +44,8 @@
     // ---- 1. 主 CSS：用 GM API fetch（繞過 CSP）→ 塞入 <style> ----
     for (const [site, cssfile] of Object.entries(sitecssmap)) {
         if (currenthost.includes(site)) {
-            const cssurl = BASE + cssfile;
-            gmFetch(cssurl)
+            const cssurl = BASE + cssfile
+            gmFetch(cssurl + '?t=' + Date.now())
                 .then(csstext => {
                     const style = document.createElement('style');
                     style.setAttribute('data-injected-by', 'auto-css-injector');
@@ -60,16 +57,4 @@
             break;
         }
     }
-
-    // ---- 2. Dev-Override：用 GM API fetch（同樣繞過 CSP）→ 塞入 <style> ----
-    gmFetch(OVERRIDE_URL)
-        .then(csstext => {
-            if (!csstext.replace(/\/\*[\s\S]*?\*\//g, '').trim()) return;   // 空檔案就唔注入
-            const style = document.createElement('style');
-            style.setAttribute('data-injected-by', 'auto-css-dev-override');
-            style.textContent = csstext + '\n\n/*# sourceURL=Dev-Override.css */';
-            (document.head || document.documentElement).appendChild(style);
-            console.log('🔧 Dev-Override injected');
-        })
-        .catch(() => {});   // Dev-Override 攞唔到就靜靜雞跳過
 })();
