@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto CSS Injector
 // @namespace    http://tampermonkey.net/
-// @version      0.7
+// @version      0.8
 // @description  直接修改 CSS
 // @author       ianian.__.cy
 // @match        *://*/*
@@ -63,7 +63,7 @@
     }
     gmFetch(OVERRIDE_URL)
         .then(csstext => {
-            if (!csstext.replace(/\/\*[\s\S]*?\*\//g, '').trim()) return;   // 空檔案就唔注入
+            // if (!csstext.replace(/\/\*[\s\S]*?\*\//g, '').trim()) return;   // 空檔案就唔注入
             const style = document.createElement('style');
             style.setAttribute('data-injected-by', 'auto-css-dev-override');
             style.textContent = csstext + '\n\n/*# sourceURL=Dev-Override.css */';
