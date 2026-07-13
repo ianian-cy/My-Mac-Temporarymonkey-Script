@@ -1,0 +1,150 @@
+@layer Preset-Variable {
+	:root {
+		--Color-Set-A-1 : rgb(250, 245, 215);
+		--Color-Set-A-2 : rgb(242, 229, 188);
+		--Color-Set-A-3 : rgb(235, 219, 178);
+		/*--------------------*/
+		--Color-Set-B-1 : rgb(252, 234, 241);
+		--Color-Set-B-2 : rgb(252, 222, 232);
+		--Color-Set-B-3 : rgb(236, 204, 213);
+		/*--------------------*/
+		--Color-Set-C-1 : rgb(209, 204, 224);
+		--Color-Set-C-2 : rgb(174, 167, 249);
+	}
+}
+
+/* Colab Header 貓貓 keep Display */
+#header[style*='display: none'] {
+	display        : block !important;
+	position       : absolute;
+	z-index        : 1000;
+	border-bottom  : none !important;
+	pointer-events : none;
+}
+#header[style*='display: none'] #header-content {display : none !important;}
+/* Notebook Cell 右上角工具欄 */
+.cell-toolbar.sticky:not(:hover) {opacity: 0 !important;}
+
+@layer Theme {
+	@layer Main {
+		.notebook-vertical:not(.embedded) {
+			background-color: var(--Color-Set-B-2) !important;
+		}			/* 整體背景 */
+		#top-toolbar {
+			background-color: var(--Color-Set-B-1) !important;
+		}								/* 最頂部工具欄 (指令/程式碼/文字 etc...) */
+		.colab-left-pane-nib .left-pane-top {
+			background-color: var(--Color-Set-B-1) !important;
+		}		/* - 左側工具欄 (icon) (檔案/尋找 etc...) */
+		colab-status-bar[role="region"] {
+			background-color: var(--Color-Set-B-1) !important;
+		}			/* - 最底執行階段欄 */
+		colab-tab-pane {
+			background-color: var(--Color-Set-B-1) !important;
+		}							/* Inside Box IDE Editor */
+	}
+	@layer Cell {
+		colab-cell-toolbar {
+			background-color: var(--Color-Set-C-2);
+		}		/* Notebook Cell 右上角工具欄 */
+		.cell>.add-cell {
+			height: 2.5px !important;
+			background-color: var(--Color-Set-B-2) !important;
+			border-bottom: black 1px solid;
+		}			/* Cell 之間的分隔線 */
+		.cell>.add-cell:hover {
+			height: 5px !important;
+			background-color: var(--Color-Set-B-3) !important;
+			border-bottom: black 1px solid;
+		}		/* Cell 之間的分隔線 (However) */
+		.add-cell-buttons md-outlined-button {
+			background-color: var(--Color-Set-B-1) !important;
+		}			/* Notebook Cell 底部 (按鈕) (新增 - 文字/程式碼) */
+		.notebook-cell.focused .main-content {
+			outline: unset !important;
+		}			/* Notebook Cell 被選取時的外框 (Outline) */
+	}
+	@layer Code-Editor {
+		.MarkDown .cell-execution-container {
+			background-color: var(--Color-Set-A-2) !important;
+		}		/* 左邊 Code running bar */
+		.monaco-editor .margin{
+			background-color: var(--Color-Set-A-1) !important;
+		}						/* Code Editor 左邊行數 bar */
+		.monaco-editor, .monaco-editor-background {
+			background-color: var(--Color-Set-A-1) !important;
+		}	/* Code Editor 背景 */
+		.monaco-editor .current-line{
+			background-color: var(--Color-Set-A-3) !important;
+		}				/* Current 編輯行 */
+	}
+	@layer Markdown-Editor {
+		.text.edit .editor-root {
+			background-color: var(--Color-Set-A-1) !important;
+			border-radius: 0 !important;
+		}		/* Markdown Editor 背景 */
+		.text.edit .toolbar-root {
+			background-color: var(--Color-Set-B-1) !important;
+		}		/* Markdown Editor 上方工具欄 背景 */
+		.text.edit .markdown-toolbar {
+			background-color: var(--Color-Set-B-3) !important;
+		}	/* Markdown Editor 上方工具欄 (Bold/Italic etc...) */
+
+	}
+	@layer Markdown-Preview {
+		/* Variable */
+		.MarkDown .markdown {
+			--Font-Size-h1: 225%;
+			--Font-Size-h2: 225%;
+			--Padding-Left:	8px;
+			--Padding-Reft:	8px;
+			/*--Markdown-Table-Background: #FCDCE0 !important;*/
+			--Markdown-Table-Background: #FCF3E3 !important;
+			--Markdown-Table-Outline: 1px solid #000 !important;
+			--Markdown-Table-Outline-radius: 10px !important;
+		}
+		.MarkDown .markdown {
+			background-color : var(--Color-Set-B-1);
+			background-size  : 100px 100px, 100px 100px;
+			padding-left: var(--Padding-Left) !important;
+			padding-right: var(--Padding-Reft) !important;
+		}
+		.MarkDown .markdown::after {
+			content        : "";
+			position       : absolute;
+			top            : 0;
+			left           : 0;
+			width          : 100%;
+			height         : 100%;
+			background     : linear-gradient(
+					135deg,
+					rgba(255, 255, 255, 0.03) 0%,
+					rgba(255, 255, 255, 0.07) 20%,
+					rgba(255, 255, 255, 0) 40%
+			) !important;
+			pointer-events : none;
+			z-index        : 2;
+			border-radius  : 4px;
+		}
+		/* Markdown section buttons */
+		.MarkDown md-icon-button.header-section-toggle {
+			position         : absolute !important;
+			top              : 50%;
+			transform        : translateY(-50%);
+			z-index          : 10;
+			opacity          : 0;
+			transition       : opacity 0.05s ease !important;
+			transition-delay : 0s !important;
+		}
+		.MarkDown md-icon-button.header-section-toggle:hover {
+			opacity          : 1 !important;
+			transition-delay : 0.05s !important;
+			position         : unset;
+			transform        : translateY(0%);
+		}
+		.MarkDown .collapsed .markdown span h1 {font-size : 300% !important;}
+		/* -------------------- */
+
+	}
+}
+
