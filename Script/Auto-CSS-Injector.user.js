@@ -66,7 +66,8 @@
             // if (!csstext.replace(/\/\*[\s\S]*?\*\//g, '').trim()) return;   // 空檔案就唔注入
             const style = document.createElement('style');
             style.setAttribute('data-injected-by', 'auto-css-dev-override');
-            // style.textContent = csstext + '\n\n/*# sourceURL=Dev-Override.css */';
+            style.textContent = csstext + '\n\n/*# sourceURL=Dev-Override.css */';
+            style.textContent = csstext + '\n\n/*# sourceURL=Dev-Override.css */';
             (document.head || document.documentElement).appendChild(style);
             console.log('🔧 Dev-Override injected');
         })
