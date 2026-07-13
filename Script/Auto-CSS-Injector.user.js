@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto CSS Injector
 // @namespace    http://tampermonkey.net/
-// @version      0.9
+// @version      0.91
 // @description  直接修改 CSS
 // @author       ianian.__.cy
 // @match        *://*/*
