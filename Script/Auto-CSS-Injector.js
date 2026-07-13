@@ -1,109 +1,82 @@
 // ==UserScript==
 // @name         Auto CSS Injector
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  直接修改 CSS
 // @author       ianian.__.cy
 // @match        *://*/*
-// @grant        GM_xmlhttpRequest
-// @grant        GM_addStyle
-// @require      https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Auto-CSS-Injector.js
+// @grant        none
 // @run-at       document-start
-// @connect      ianian-cy.com
+// @updateURL    https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Auto-CSS-Injector.user.js
+// @downloadURL  https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Auto-CSS-Injector.user.js
 // ==/UserScript==
 
 
 
-(function() {
+(function () {
     'use strict';
 
-    const sitecssmap = {
-        // 'google.com': 'https://www.xxx.com/google.css',
-        // 'youtube.com': 'https://www.xxx.com/youtube.css',
-        // 'facebook.com': 'https://www.xxx.com/facebook.css',
-        // ==================== Google
-        'gemini.google.com': 'https://ianian-cy.com/Web-Style/Gemini.css',
-        'aistudio.google.com': 'https://ianian-cy.com/Web-Style/Aistudio-Google.css',
-        'colab.research.google.com': 'https://ianian-cy.com/Web-Style/Google-Colab.css',
-        'youtube.com': 'https://ianian-cy.com/Web-Style/Youtube.css',
-        'google,com' : 'https://ianian-cy.com/Web-Style/Google-Search.css',
-        // ====================
-        'claude.ai' : 'https://ianian-cy.com/Web-Style/Claude.css',
-        'platform.claude.com' : 'https://ianian-cy.com/Web-Style/platform.claude.css',
-        // ====================
+    const BASE = 'https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/StyleSheet/';
+    const OVERRIDE_URL = 'https://cdn.jsdelivr.net/gh/ianian-cy/My-Mac-Temporarymonkey-Script@main/StyleSheet/Dev-Override.css';
 
-        'theguardian.com': 'https://ianian-cy.com/Web-Style/The-Guardian.css',
-        'theage.com.au': 'https://ianian-cy.com/Web-Style/The-Age.css',
-        'grok.com': 'https://ianian-cy.com/Web-Style/Grok.css',
-        'blog.csdn.net': 'https://ianian-cy.com/Web-Style/blog_csdn.css',
-        'perplexity.ai': 'https://ianian-cy.com/Web-Style/perplexity.css',
-        'www.perplexity.ai/search/': 'https://ianian-cy.com/Web-Style/perplexity.css',
-        '881903.com': 'https://ianian-cy.com/Web-Style/881903.css',
-        'ieltsonlinetests.com': 'https://ianian-cy.com/Web-Style/ieltsonlinetests.css',
-        'missav.ai': 'https://ianian-cy.com/Web-Style/MissAI.css',
-        'thesaurus.com': 'https://ianian-cy.com/Web-Style/thesaurus.css',
-        'web.telegram.org': 'https://ianian-cy.com/Web-Style/Telegram.css',
-        'learn.adelaide.edu.au': 'https://ianian-cy.com/Web-Style/Learn-Adelaide.css',
-        'hk01.com': 'https://ianian-cy.com/Web-Style/hk01.css',
-        'wordlayouts.com': 'https://ianian-cy.com/Web-Style/hk01.css',
-        'terraink.app': 'https://ianian-cy.com/Web-Style/terraink.css'
+    const sitecssmap = {
+        // ==================== Google
+        'gemini.google.com': 'Gemini.css',
+        'aistudio.google.com': 'Aistudio-Google.css',
+        'colab.research.google.com': 'Google-Colab.css',
+        'youtube.com': 'Youtube.css',
+        'google.com': 'Google-Search.css',        // 已修正原本嘅 'google,com' 逗號 typo
+        // ====================
+        'claude.ai': 'Claude.css',
+        'platform.claude.com': 'platform.claude.css',
+        // ====================
+        'theguardian.com': 'The-Guardian.css',
+        'theage.com.au': 'The-Age.css',
+        'grok.com': 'Grok.css',
+        'blog.csdn.net': 'blog_csdn.css',
+        'perplexity.ai': 'perplexity.css',        // 已刪 'www.perplexity.ai/search/'(hostname 永遠唔會含 path)
+        '881903.com': '881903.css',
+        'ieltsonlinetests.com': 'ieltsonlinetests.css',
+        'missav.ai': 'MissAI.css',
+        'thesaurus.com': 'thesaurus.css',
+        'web.telegram.org': 'Telegram.css',
+        'learn.adelaide.edu.au': 'Learn-Adelaide.css',
+        'hk01.com': 'hk01.css',
+        'wordlayouts.com': 'hk01.css',            // ⚠️ 照你原本咁指住 hk01.css,如果係手民之誤請自行改
+        'terraink.app': 'terraink.css'
     };
 
     const currenthost = window.location.hostname.replace(/^www\./, '');
-    /* --------------------
-    for (const [site, cssurl] of Object.entries(sitecssmap)) {
+
+    // ---- 1. 注入該網站嘅主 CSS(fetch → <style>,跨平台,唔使任何 GM API) ----
+    for (const [site, cssfile] of Object.entries(sitecssmap)) {
         if (currenthost.includes(site)) {
-            // 用 GM_xmlhttpRequest 去攞 CSS 內容
-            GM_xmlhttpRequest({
-                method: 'GET',
-                url: cssurl,
-                onload: function(response) {
-                    if (response.status === 200) {
-                        // 用 GM_addStyle 注入 CSS
-                        GM_addStyle(response.responseText);
-                    }
-                },
-                onerror: function(error) {
-                    console.error('無法載入 CSS:', cssurl, error);
-                }
-            });
+            const cssurl = BASE + cssfile;
+            fetch(cssurl)
+                .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+                .then(csstext => {
+                    const style = document.createElement('style');
+                    style.setAttribute('data-injected-by', 'auto-css-injector');
+                    style.textContent = csstext + `\n\n/*# sourceURL=${cssurl} */`;
+                    (document.head || document.documentElement).appendChild(style);
+                    console.log('✅ CSS injected:', cssfile);
+                })
+                .catch(err => console.error('❌ 無法載入 CSS:', cssurl, err));
             break;
         }
     }
-     -------------------- */
-    for (const [site, cssurl] of Object.entries(sitecssmap)) {
-        if (currenthost.includes(site)) {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = cssurl;
-            link.setAttribute('data-injected-by', 'auto-css-injector');
-            (document.head || document.documentElement).appendChild(link);
-            break;
-        }
-    }
-    for (const [site, cssurl] of Object.entries(sitecssmap)) {
-        if (currenthost.includes(site)) {
-            GM_xmlhttpRequest({
-                method: 'GET',
-                url: cssurl,
-                onload: function(response) {
-                    if (response.status === 200) {
-                        // 提取檔名
-                        const filename = cssurl.split('/').pop();
 
-                        // 加上 sourceURL 註釋,令 DevTools 將佢當成獨立檔案
-                        const cssWithSourceMap = `${response.responseText}\n\n/*# sourceURL=${cssurl} */`;
-
-                        GM_addStyle(cssWithSourceMap);
-                        console.log('✅ CSS injected as virtual file:', filename);
-                    }
-                },
-                onerror: function(error) {
-                    console.error('❌ 無法載入 CSS:', cssurl, error);
-                }
-            });
-            break;
-        }
+    // ---- 2. 每個網站都額外注入 Dev-Override.css(<link>,配合 Local Overrides 做 live dev) ----
+    const injectOverride = () => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = OVERRIDE_URL;
+        link.setAttribute('data-injected-by', 'auto-css-dev-override');
+        document.head.appendChild(link);
+    };
+    if (document.head) {
+        injectOverride();
+    } else {
+        document.addEventListener('DOMContentLoaded', injectOverride, { once: true });
     }
 })();
