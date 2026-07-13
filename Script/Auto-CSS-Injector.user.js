@@ -15,10 +15,8 @@
 // @downloadURL  https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Auto-CSS-Injector.user.js
 // ==/UserScript==
 
-
 (function () {
     'use strict';
-
     // ---- GM API 跨平台 wrapper ----
     function gmFetch(url) {
         return new Promise((resolve, reject) => {
@@ -37,10 +35,33 @@
     }
 
     const BASE = 'https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/StyleSheet/';
-    const OVERRIDE_URL = 'https://cdn.jsdelivr.net/gh/ianian-cy/My-Mac-Temporarymonkey-Script@main/StyleSheet/Dev-Override.css';
 
     const sitecssmap = {
+        // ==================== Google
         'gemini.google.com': 'Gemini.css',
+        'aistudio.google.com': 'Aistudio-Google.css',
+        'colab.research.google.com': 'Google-Colab.css',
+        'youtube.com': 'Youtube.css',
+        'google,com' : 'Google-Search.css',
+        // ====================
+        'claude.ai' : 'Claude.css',
+        'platform.claude.com' : 'platform.claude.css',
+        // ====================
+        'theguardian.com': 'The-Guardian.css',
+        'theage.com.au': 'The-Age.css',
+        'grok.com': 'Grok.css',
+        'blog.csdn.net': 'blog_csdn.css',
+        'perplexity.ai': 'perplexity.css',
+        'www.perplexity.ai/search/': 'perplexity.css',
+        '881903.com': '881903.css',
+        'ieltsonlinetests.com': 'ieltsonlinetests.css',
+        'missav.ai': 'MissAI.css',
+        'thesaurus.com': 'thesaurus.css',
+        'web.telegram.org': 'Telegram.css',
+        'learn.adelaide.edu.au': 'Learn-Adelaide.css',
+        'hk01.com': 'hk01.css',
+        'wordlayouts.com': 'hk01.css',
+        'terraink.app': 'terraink.css'
     };
 
     const currenthost = window.location.hostname.replace(/^www\./, '');
