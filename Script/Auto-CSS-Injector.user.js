@@ -58,7 +58,9 @@
         'learn.adelaide.edu.au': 'Learn-Adelaide.css',
         'hk01.com': 'hk01.css',
         'wordlayouts.com': 'hk01.css',
-        'terraink.app': 'terraink.css'
+        'terraink.app': 'terraink.css',
+        'codepen.io': 'codepen.io.css',
+
     };
 
     const currenthost = window.location.hostname.replace(/^www\./, '');
