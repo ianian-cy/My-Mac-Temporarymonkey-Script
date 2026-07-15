@@ -12,8 +12,6 @@
 // @downloadURL  https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Youtube-ControlBar-Hidden.user.js
 // ==/UserScript==
 
-
-
 (function() {
     'use strict';
 
