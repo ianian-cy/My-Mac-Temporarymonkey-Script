@@ -8,8 +8,8 @@
 // @grant        none
 // @run-at       document-start
 // @connect      raw.githubusercontent.com
-// @updateURL    https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Auto-CSS-Injector.user.js
-// @downloadURL  https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Auto-CSS-Injector.user.js
+// @updateURL    https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Youtube-ControlBar-Hidden.user.js
+// @downloadURL  https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Youtube-ControlBar-Hidden.user.js
 // ==/UserScript==
 
 
