@@ -10,8 +10,8 @@
 // @grant               none
 // @run-at              document-start
 // @connect             raw.githubusercontent.com
-// @updateURL           https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Instagram-Download-Button.js
-// @downloadURL         https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Instagram-Download-Button.js
+// @updateURL           https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Instagram-Download-Button.user.js
+// @downloadURL         https://raw.githubusercontent.com/ianian-cy/My-Mac-Temporarymonkey-Script/main/Script/Instagram-Download-Button.user.js
 // ==/UserScript==
 
 (function () {
