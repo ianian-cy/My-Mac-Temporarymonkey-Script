@@ -1,0 +1,8 @@
+div[data-state='collapsed'][data-variant='sidebar'] {
+    filter     : blur(15px);
+    transition : filter 0.3s ease;
+    }
+
+div[data-state='collapsed'][data-variant='sidebar']:hover {
+    filter     : blur(0);
+    }

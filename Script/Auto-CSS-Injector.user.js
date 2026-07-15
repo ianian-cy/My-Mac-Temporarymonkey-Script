@@ -51,8 +51,6 @@
         'theage.com.au': 'The-Age.css',
         'grok.com': 'Grok.css',
         'blog.csdn.net': 'blog_csdn.css',
-        'perplexity.ai': 'perplexity.css',
-        'www.perplexity.ai/search/': 'perplexity.css',
         '881903.com': '881903.css',
         'ieltsonlinetests.com': 'ieltsonlinetests.css',
         'missav.ai': 'MissAI.css',

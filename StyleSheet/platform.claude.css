@@ -1,0 +1,4 @@
+:has([data-testid='menu-sidebar']:not(.border-r-0\.5)) .w-full.pl-0 {}
+:has([data-testid='menu-sidebar'].border-r-0\.5) .w-full.pl-0 {
+	display: none;
+}
