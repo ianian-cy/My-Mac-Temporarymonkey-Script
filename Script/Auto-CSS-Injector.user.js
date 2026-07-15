@@ -42,7 +42,6 @@
         'aistudio.google.com': 'Aistudio-Google.css',
         'colab.research.google.com': 'Google-Colab.css',
         'youtube.com': 'Youtube.css',
-        'google,com' : 'Google-Search.css',
         // ====================
         'claude.ai' : 'Claude.css',
         'platform.claude.com' : 'platform.claude.css',
