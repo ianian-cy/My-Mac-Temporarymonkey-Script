@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto CSS Injector
 // @namespace    http://tampermonkey.net/
-// @version      1.1.3
+// @version      1.1.4
 // @description  直接修改 CSS
 // @author       ianian.__.cy
 // @match        *://*/*
@@ -60,6 +60,7 @@
         'wordlayouts.com': 'hk01.css',
         'terraink.app': 'terraink.css',
         'codepen.io': 'codepen.io.css',
+        'ielts.idp.com': 'ielts.idp.css',
 
     };
 
