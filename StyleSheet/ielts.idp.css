@@ -1,3 +1,6 @@
+#header {
+	position : unset !important;
+}
 .header-fixed {
 	padding-top: 0!important;
 }
