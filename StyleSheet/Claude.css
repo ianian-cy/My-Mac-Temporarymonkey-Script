@@ -285,4 +285,7 @@
 	strong {
 		/*font-weight: unset !important;*/
 	}
+	div[data-cds="ChatComposer"] {
+		font-family: "The Peak Font Plus" !important;
+	}
 }
