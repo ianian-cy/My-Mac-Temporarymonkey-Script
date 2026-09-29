@@ -277,6 +277,7 @@
 @layer Light-Mode {
 	* {
 		--font-claude-response : ThePeakFontPlus;
+		--transcript-width: 55rem;
 	}
 	.font-claude-response-body {
 		font-family : Main-Font, serif !important;
